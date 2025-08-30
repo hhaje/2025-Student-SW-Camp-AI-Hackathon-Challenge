@@ -7,6 +7,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -78,10 +79,16 @@ fun MainScreen(
                     onClick = { selectedTab = 1 }
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Person, contentDescription = "프로필") },
-                    label = { Text("프로필") },
+                    icon = { Icon(Icons.Default.ShoppingCart, contentDescription = "상점") },
+                    label = { Text("상점") },
                     selected = selectedTab == 2,
                     onClick = { selectedTab = 2 }
+                )
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Person, contentDescription = "프로필") },
+                    label = { Text("프로필") },
+                    selected = selectedTab == 3,
+                    onClick = { selectedTab = 3 }
                 )
             }
         }
@@ -114,7 +121,8 @@ fun MainScreen(
                     }
                 }
                 1 -> BadgeScreen(userProfile = userProfile)
-                2 -> ProfileScreen(userProfile = userProfile)
+                2 -> StoreScreen(userProfile = userProfile)
+                3 -> ProfileScreen(userProfile = userProfile)
             }
         }
     }

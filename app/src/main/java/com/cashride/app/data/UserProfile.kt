@@ -45,7 +45,7 @@ enum class BadgeType(val displayName: String, val emoji: String, val requirement
  */
 data class UserProfile(
     val userId: String = "user_001",
-    var totalPoints: Int = 0,
+    var totalPoints: Int = 500, // 테스트를 위해 초기 포인트 설정
     var consecutiveSafeRides: Int = 0,
     var totalRides: Int = 0,
     var totalDistance: Double = 0.0,
@@ -55,7 +55,10 @@ data class UserProfile(
     // 특별 행동 카운터
     var perfectStops: Int = 0,
     var safeZoneSlows: Int = 0,
-    var recommendedParkings: Int = 0
+    var recommendedParkings: Int = 0,
+    
+    // 기프티콘 관련
+    val ownedGiftCards: MutableList<UserGiftCard> = mutableListOf()
 ) {
     /**
      * 사용자 레벨 계산
@@ -122,6 +125,47 @@ data class UserProfile(
         ridingHistory.add(session)
         
         return finalPoints
+    }
+    
+    /**
+     * 기프티콘 구매
+     */
+    fun purchaseGiftCard(giftCard: GiftCard): Boolean {
+        if (totalPoints < giftCard.price) {
+            return false // 포인트 부족
+        }
+        
+        totalPoints -= giftCard.price
+        ownedGiftCards.add(UserGiftCard(giftCard = giftCard))
+        return true
+    }
+    
+    /**
+     * 기프티콘 사용
+     */
+    fun useGiftCard(giftCardId: String): Boolean {
+        val userGiftCard = ownedGiftCards.find { it.id == giftCardId }
+        if (userGiftCard == null || userGiftCard.isUsed) {
+            return false
+        }
+        
+        userGiftCard.isUsed = true
+        userGiftCard.usedDate = System.currentTimeMillis()
+        return true
+    }
+    
+    /**
+     * 사용 가능한 기프티콘 목록
+     */
+    fun getAvailableGiftCards(): List<UserGiftCard> {
+        return ownedGiftCards.filter { !it.isUsed }
+    }
+    
+    /**
+     * 사용된 기프티콘 목록
+     */
+    fun getUsedGiftCards(): List<UserGiftCard> {
+        return ownedGiftCards.filter { it.isUsed }
     }
     
     private fun updateActionCounters(session: RidingSession) {
