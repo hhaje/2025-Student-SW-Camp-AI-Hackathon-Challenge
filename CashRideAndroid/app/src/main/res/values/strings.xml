@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">CashRide</string>
+    
+    <!-- Navigation Menu -->
+    <string name="nav_home">홈</string>
+    <string name="nav_rewards">포인트 상점</string>
+    <string name="nav_challenge">일일 챌린지</string>
+    <string name="nav_profile">내 프로필</string>
+    <string name="nav_stats">통계</string>
+    
+    <!-- Main Screen -->
+    <string name="start_ride">🚀 운행 시작</string>
+    <string name="consecutive_safe_rides">%d회 연속 안전운전</string>
+    <string name="consecutive_bonus_hint">연속 기록을 유지하면 보너스 포인트!</string>
+    
+    <!-- Riding Screen -->
+    <string name="ride_started_message">🛴 운행이 시작되었습니다\n안전운전하세요!</string>
+    <string name="end_ride">⏹ 운행 종료</string>
+    <string name="test_actions">🎮 테스트 액션</string>
+    <string name="bonus_actions">✅ 보너스 액션</string>
+    <string name="penalty_actions">⚠️ 패널티 액션</string>
+    
+    <!-- Safety Events -->
+    <string name="perfect_stop">🛑 완벽한 정지</string>
+    <string name="safe_zone_slow">🐌 안전구간 서행</string>
+    <string name="signal_obey">🚦 신호준수</string>
+    <string name="zone_speeding">🚨 Zone 과속</string>
+    <string name="phone_usage">📱 폰 사용</string>
+    <string name="speeding">🏃 과속</string>
+    
+    <!-- Stats -->
+    <string name="current_speed">현재 속도 (km/h)</string>
+    <string name="ride_distance">주행거리 (km)</string>
+    <string name="safety_score">안전점수</string>
+    <string name="ride_time">운행시간</string>
+    
+    <!-- Report -->
+    <string name="ride_completed">🎉 운행 완료!</string>
+    <string name="safety_actions_title">🛡️ 안전 행동</string>
+    <string name="points_earned_title">✨ 포인트 획득!</string>
+    <string name="tap_to_continue">화면을 터치하세요</string>
+    <string name="tap_to_complete">화면을 터치하여 완료</string>
+    
+    <!-- Coupons -->
+    <string name="points_shop">🎁 포인트 상점</string>
+    <string name="purchase_history">📋 구매 내역</string>
+    <string name="no_coupons">구매 내역이 없습니다</string>
+    <string name="insufficient_points">포인트 부족</string>
+    <string name="purchase_btn">구매하기</string>
+    
+    <!-- Profile -->
+    <string name="my_profile">👤 내 프로필</string>
+    <string name="current_level">현재 레벨</string>
+    <string name="total_rides">총 운행 횟수</string>
+    <string name="total_distance">총 주행거리</string>
+    <string name="max_streak">최고 연속 기록</string>
+    <string name="earned_badges">🏅 획득한 배지</string>
+    <string name="no_badges">아직 획득한 배지가 없습니다</string>
+</resources>
